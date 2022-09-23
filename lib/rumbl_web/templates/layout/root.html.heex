@@ -22,6 +22,7 @@
             <% end %>
             <%= if @current_user do %>
               <li><%= @current_user.username %></li>
+              <li><%= link "Meus Vídeos", to: Routes.video_path(@conn, :index)%> </li>
               <li><%= link "Sair", to: Routes.session_path(@conn, :delete, @current_user), method: "delete" %> </li>
             <% else %>
               <li><%= link "Registrar", to: Routes.user_path(@conn, :new) %></li>

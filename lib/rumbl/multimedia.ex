@@ -46,7 +46,26 @@ defmodule Rumbl.Multimedia do
       ** (Ecto.NoResultsError)
 
   """
-  def get_video!(%Accounts.User{} = user, id) do
+  def get_video!(id) do
+    Video
+    |> Repo.get!(id)
+  end
+
+  @doc """
+  Gets a single video of an user.
+
+  Raises `Ecto.NoResultsError` if the Video does not exist.
+
+  ## Examples
+
+      iex> get_video!(user, 123)
+      %Video{}
+
+      iex> get_video!(user, 456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_video!(%Accounts.User{} = user, id) when user != nil do
     Video
     |> user_videos_query(user)
     |> Repo.get!(id)
