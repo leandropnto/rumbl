@@ -33,7 +33,7 @@ defmodule RumblWeb.Auth do
     configure_session(conn, drop: true)
   end
 
-  @doc"""
+  @doc """
     Autenticação do usuário
   """
   def authenticate_user(conn, _opts) do

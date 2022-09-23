@@ -1,6 +1,6 @@
-defmodule Rumbl.Multimidia do
+defmodule Rumbl.Multimedia do
   @moduledoc """
-  The Multimidia context.
+  The Multimedia context.
   Contexto para manipular vídeos.
   Com funções para adicionar, listar todos e pesquisar vídeos.
   """
@@ -8,8 +8,8 @@ defmodule Rumbl.Multimidia do
   import Ecto.Query, warn: false
   alias Rumbl.Repo
 
-  alias Rumbl.Multimidia.Category
-  alias Rumbl.Multimidia.Video
+  alias Rumbl.Multimedia.Category
+  alias Rumbl.Multimedia.Video
   alias Rumbl.Accounts
 
   @doc """

@@ -1,4 +1,4 @@
-defmodule Rumbl.Multimidia.Video do
+defmodule Rumbl.Multimedia.Video do
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -7,7 +7,7 @@ defmodule Rumbl.Multimidia.Video do
     field :title, :string
     field :url, :string
     belongs_to :user, Rumbl.Accounts.User
-    belongs_to :category, Rumbl.Multimidia.Category
+    belongs_to :category, Rumbl.Multimedia.Category
 
     timestamps()
   end

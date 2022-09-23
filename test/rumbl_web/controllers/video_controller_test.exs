@@ -2,9 +2,9 @@ defmodule RumblWeb.VideoControllerTest do
   use RumblWeb.ConnCase, async: true
 
   import Rumbl.AccountsFixture
-  import Rumbl.MultimidiaFixtures
+  import Rumbl.MultimediaFixtures
 
-  alias Rumbl.Multimidia
+  alias Rumbl.Multimedia
 
   @create_attrs %{
     url: "http://youtu.be",
@@ -14,7 +14,7 @@ defmodule RumblWeb.VideoControllerTest do
 
   @invalid_attrs %{title: "invalid"}
 
-  defp video_count(), do: Enum.count(Multimidia.list_videos())
+  defp video_count(), do: Enum.count(Multimedia.list_videos())
 
   test "requires user authentication on all actions", %{conn: conn} do
     Enum.each(
@@ -61,7 +61,7 @@ defmodule RumblWeb.VideoControllerTest do
 
       conn = get(conn, Routes.video_path(conn, :show, id))
       assert html_response(conn, 200) =~ "Vídeo"
-      assert Multimidia.get_video!(user, id).user_id == user.id
+      assert Multimedia.get_video!(user, id).user_id == user.id
     end
 
     @tag login_as: "leandropnto"

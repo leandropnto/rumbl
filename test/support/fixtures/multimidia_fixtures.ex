@@ -1,16 +1,16 @@
-defmodule Rumbl.MultimidiaFixtures do
+defmodule Rumbl.MultimediaFixtures do
   @moduledoc """
   This module defines test helpers for creating
-  entities via the `Rumbl.Multimidia` context.
+  entities via the `Rumbl.Multimedia` context.
   """
   alias Rumbl.Accounts
-  alias Rumbl.Multimidia.Category
+  alias Rumbl.Multimedia.Category
 
   @doc """
   Generate a video.
   """
   def video_fixture(%Accounts.User{} = user, attrs \\ %{}) do
-    %Category{id: category_id} = Rumbl.Multimidia.create_category!("Test")
+    %Category{id: category_id} = Rumbl.Multimedia.create_category!("Test")
 
     attrs =
       Enum.into(attrs, %{
@@ -20,7 +20,7 @@ defmodule Rumbl.MultimidiaFixtures do
         category_id: category_id
       })
 
-    {:ok, video} = Rumbl.Multimidia.create_video(user, attrs)
+    {:ok, video} = Rumbl.Multimedia.create_video(user, attrs)
 
     video
   end

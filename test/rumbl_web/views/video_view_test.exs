@@ -1,7 +1,7 @@
 defmodule RumblWeb.VideoViewTest do
   use RumblWeb.ConnCase, async: true
   import Phoenix.View
-  import Rumbl.MultimidiaFixtures
+  import Rumbl.MultimediaFixtures
   import Rumbl.AccountsFixture
 
   test "renders index.html", %{conn: conn} do
@@ -25,8 +25,8 @@ defmodule RumblWeb.VideoViewTest do
   test "renders new.html", %{conn: conn} do
     owner = user_fixture()
 
-    changeset = Rumbl.Multimidia.change_video(%Rumbl.Multimidia.Video{})
-    categories = [%Rumbl.Multimidia.Category{id: 123, name: "cats"}]
+    changeset = Rumbl.Multimedia.change_video(%Rumbl.Multimedia.Video{})
+    categories = [%Rumbl.Multimedia.Category{id: 123, name: "cats"}]
 
     content =
       render_to_string(RumblWeb.VideoView, "new.html",

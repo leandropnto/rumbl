@@ -1,4 +1,4 @@
-defmodule Rumbl.Multimidia.Category do
+defmodule Rumbl.Multimedia.Category do
   use Ecto.Schema
   import Ecto.Changeset
   import Ecto.Query
