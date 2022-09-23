@@ -10,6 +10,9 @@ defmodule Rumbl.Accounts do
     Repo.all(User)
   end
 
+  @doc """
+    Recupera o usuário conforme o id passado
+  """
   def get_user(id) do
     # Enum.find(list_users(), fn map -> map.id == id end)
     Repo.get(User, id)
@@ -37,7 +40,7 @@ defmodule Rumbl.Accounts do
     |> Repo.insert()
   end
 
-  @docs"""
+  @doc """
     Função para alterar os dados do usuário
   """
   def change_registration(%User{} = user, params) do
