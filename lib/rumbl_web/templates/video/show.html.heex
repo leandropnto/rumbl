@@ -1,0 +1,25 @@
+<h1>Vídeo</h1>
+
+<ul>
+
+  <li>
+    <strong>Url:</strong>
+    <a target="_blank" href={@video.url}><%= @video.url %></a>
+  </li>
+    <li>
+      <%= embed_video(@video) %>
+    </li>
+  <li>
+    <strong>Título:</strong>
+    <%= @video.title %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @video.description %>
+  </li>
+
+</ul>
+
+<span><%= link "Editar", to: Routes.video_path(@conn, :edit, @video), class: "button button-info" %></span> |
+<span><%= link "Voltar", to: Routes.video_path(@conn, :index), class: "button button-outline" %></span>

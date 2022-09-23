@@ -1,0 +1,12 @@
+<style>
+  .container-user {
+      display: flex;
+      flex-direction: column;
+      height: fit-content;
+    }
+</style>
+<div class="container-user">
+<h1> Informações do usuário</h1>
+<%= render "user.html", user: @user %>
+<%= link "Voltar", to: Routes.user_path(@conn, :index) %>
+</div>
