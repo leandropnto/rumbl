@@ -46,7 +46,7 @@ defmodule RumblWeb.VideoController do
     case Multimedia.update_video(video, video_params) do
       {:ok, video} ->
         conn
-        |> put_flash(:info, "Video updated successfully.")
+        |> put_flash(:info, "Vídeo Atualizado com sucesso!")
         |> redirect(to: Routes.video_path(conn, :show, video))
 
       {:error, %Ecto.Changeset{} = changeset} ->

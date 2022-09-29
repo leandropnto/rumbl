@@ -10,12 +10,12 @@
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
 
-alias Rumbl.Multimidia
+alias Rumbl.Multimedia
 alias Rumbl.Accounts.User
 alias Rumbl.Accounts
 
 for category <- ~w(Action Drama Romance Comedy Sci-fi) do
-  Multimidia.create_category!(category)
+  Multimedia.create_category!(category)
 end
 
 user_attrs = %{
