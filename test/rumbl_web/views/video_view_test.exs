@@ -35,6 +35,6 @@ defmodule RumblWeb.VideoViewTest do
         categories: categories
       )
 
-    assert String.contains?(content, "New Video")
+    assert String.contains?(content, "Novo Vídeo")
   end
 end
