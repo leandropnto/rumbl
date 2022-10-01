@@ -1,11 +1,11 @@
 <h1>Listagem de usuários</h1>
-<table>
+          <table>
 
   <%= for user <- @users do %>
   <tr>
     <!-- <td><%= first_name(user) %></td> -->
     <td><%= user.name %></td>
-    <td><%= link "Exibir", to: Routes.user_path(@conn, :show, user.id) %></td>
+            <td><%= link "Exibir", to: Routes.user_path(@conn, :show, user.id) %></td>
   </tr>
   <%  end %>
 </table>

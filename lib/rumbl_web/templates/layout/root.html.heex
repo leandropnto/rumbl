@@ -1,33 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="csrf-token" content={csrf_token_value()}>
-    <%= live_title_tag assigns[:page_title] || "Rumbl", suffix: " · Versão 1.0" %>
-    <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
-    <script>window.userToken="<%= assigns[:user_token] %>"</script>
-    <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="csrf-token" content={csrf_token_value()} />
+    <%= live_title_tag(assigns[:page_title] || "Rumbl", suffix: " · Versão 1.0") %>
+    <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")} />
+    <script>
+      window.userToken="<%= assigns[:user_token] %>"
+    </script>
+    <script
+      defer
+      phx-track-static
+      type="text/javascript"
+      src={Routes.static_path(@conn, "/assets/app.js")}
+    >
+    </script>
   </head>
   <body>
     <header>
       <section class="container">
         <nav>
           <ul>
-            <li><%= link "HOME", to: Routes.page_path(@conn, :index) %></li>
-            <li><%= link "Users", to: Routes.user_path(@conn, :index) %></li>
-            <li><%= link "Vídeos", to: Routes.video_path(@conn, :index) %></li>
+            <li><%= link("HOME", to: Routes.page_path(@conn, :index)) %></li>
+            <li><%= link("Users", to: Routes.user_path(@conn, :index)) %></li>
+            <li><%= link("Vídeos", to: Routes.video_path(@conn, :index)) %></li>
             <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
-              <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
+              <li><%= link("LiveDashboard", to: Routes.live_dashboard_path(@conn, :home)) %></li>
             <% end %>
             <%= if @current_user do %>
               <li><%= @current_user.username %></li>
-              <li><%= link "Meus Vídeos", to: Routes.video_path(@conn, :index)%> </li>
-              <li><%= link "Sair", to: Routes.session_path(@conn, :delete, @current_user), method: "delete" %> </li>
+              <li><%= link("Meus Vídeos", to: Routes.video_path(@conn, :index)) %></li>
+              <li>
+                <%= link("Sair",
+                  to: Routes.session_path(@conn, :delete, @current_user),
+                  method: "delete"
+                ) %>
+              </li>
             <% else %>
-              <li><%= link "Registrar", to: Routes.user_path(@conn, :new) %></li>
-              <li><%= link "Entrar", to: Routes.session_path(@conn, :new) %></li>
+              <li><%= link("Registrar", to: Routes.user_path(@conn, :new)) %></li>
+              <li><%= link("Entrar", to: Routes.session_path(@conn, :new)) %></li>
             <% end %>
             <li></li>
           </ul>

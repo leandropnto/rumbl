@@ -5,6 +5,7 @@ defmodule Rumbl.Accounts do
 
   alias Rumbl.Accounts.User
   alias Rumbl.Repo
+  import Ecto.Query
 
   def list_users do
     Repo.all(User)
@@ -73,5 +74,9 @@ defmodule Rumbl.Accounts do
         Pbkdf2.no_user_verify()
         {:error, :not_found}
     end
+  end
+
+  def list_users_with_ids(ids) do
+    Repo.all(from u in User, where: u.id in ^ids)
   end
 end

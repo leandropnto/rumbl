@@ -5,6 +5,7 @@ defmodule RumblWeb.VideoChannel do
   alias RumblWeb.AnnotationView
 
   def join("videos:" <> video_id, params, socket) do
+    send(self(), :after_join)
     last_seen_id = params["last_seen_id"] || 0
     video_id = String.to_integer(video_id)
     video = Multimedia.get_video!(video_id)
@@ -40,9 +41,9 @@ defmodule RumblWeb.VideoChannel do
     end
   end
 
-  def handle_info(:ping, socket) do
-    count = socket.assigns[:count] || 1
-    push(socket, "ping", %{count: count})
-    {:noreply, assign(socket, :count, count + 1)}
+  def handle_info(:after_join, socket) do
+    push(socket, "presence_state", RumblWeb.Presence.list(socket))
+    {:ok, _} = RumblWeb.Presence.track(socket, socket.assigns.user_id, %{device: "browser"})
+    {:noreply, socket}
   end
 end

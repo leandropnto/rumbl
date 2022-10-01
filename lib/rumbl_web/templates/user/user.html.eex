@@ -1,2 +1,0 @@
-<!-- <div><strong><%= first_name(@user) %></strong>(<%= @user.id %>)</div> -->
-<div><strong><%= @user.name %></strong>(<%= @user.id %>)</div>

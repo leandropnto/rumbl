@@ -10,16 +10,21 @@ defmodule RumblWeb.VideoView do
         new_url = String.split(url, ~r/v=/, trim: true) |> List.last()
 
         ~H"""
-          <iframe width="560" height="315" src={"#{base_url}#{new_url}"} title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-          </iframe>
+        <iframe
+          width="560"
+          height="315"
+          src={"#{base_url}#{new_url}"}
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        >
+        </iframe>
         """
 
       true ->
         ~H"""
-          <video></video>
+        <video></video>
         """
     end
   end
